@@ -2,7 +2,7 @@
 
 <<help
 
-This script is for create user
+This script is for move files
 
 help
 
