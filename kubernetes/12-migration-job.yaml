@@ -9,10 +9,12 @@ spec:
   template:
     spec:
       containers:
-        - name: migration
-          image: atharvkarpe/easy-shop-migration
-          imagePullPolicy: Always
-          env:
-          - name: MONGODB_URI
+      - name: migration
+        image: atharvkarpe/easyshop-migration:latest
+        imagePullPolicy: Always
+        env:
+          - name: MONGDB_URI
             value: "mongodb://mongodb-service:27017/easyshop"
-      restartPolicy: OnFailure  
+
+      restartPolicy: OnFailure
+

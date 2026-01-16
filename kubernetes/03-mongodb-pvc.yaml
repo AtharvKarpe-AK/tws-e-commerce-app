@@ -1,11 +1,12 @@
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 
 metadata:
   name: mongodb-pvc
   namespace: easyshop
 
-spec: 
+
+spec:
   accessModes:
     - ReadWriteOnce
   resources:

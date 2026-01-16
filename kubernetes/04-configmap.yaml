@@ -8,7 +8,7 @@ metadata:
 data:
   MONGODB_URI: "mongodb://mongodb-service:27017/easyshop"
   NODE_ENV: "production"
-  NEXT_PUBLIC_API_URL: "http://3.250.108.246/api"
-  NEXT_AUTH_URI: "http://3.250.108.246"
-  NEXT_AUTH_SECRET: "dPvf+xBf05+MKta62o08w1q8DxPIMXFQxVMFBNjkzQc="
-  JWT_SECRET: "b1ae17dacc2bdc86ff5e200657cb268b03cefcc174945aa4f66ca2973a28b8ab"
+  NEXT_PUBLIC_API_URL: "http://108.130.117.201.nip.io:3000"
+  NEXTAUTH_URL: "http://108.130.117.201.nip.io:3000"
+  NEXTAUTH_SECRET: "iJ5nPlJBVPKiPjRmS14L5WqlTiqdEAcJ42DqhbOQs2I="
+  JWT_SECRET: "6aa69881f05e50d7ec317d6cecc8fef6264582dfdb52b2a49fdf8816405a107e"

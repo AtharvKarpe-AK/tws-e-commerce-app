@@ -1,6 +1,7 @@
 kind: StatefulSet
 apiVersion: apps/v1
 
+
 metadata:
   name: mongodb
   namespace: easyshop
@@ -31,9 +32,11 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "250m"
+
             limits:
               memory: "512Mi"
               cpu: "500m"
+
       volumes:
         - name: mongodb-storage
           persistentVolumeClaim:
