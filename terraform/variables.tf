@@ -1,19 +1,28 @@
 variable "aws_region" {
-  description = "AWS region where resources will be provisioned"
-  default     = "us-east-2"
+
+description = "AWS region where resource will be provisioned"
+default = "eu-west-1"
+
 }
 
 variable "ami_id" {
-  description = "AMI ID for the EC2 instance"
-  default     = "ami-085f9c64a9b75eed5"
+
+description = "ami ID for ubuntu, but we are not using this ami id, will be using from data"
+default = "ami-049442a6cf8319180" 
+
 }
+
 
 variable "instance_type" {
-  description = "Instance type for the EC2 instance"
-  default     = "t2.medium"
+
+description = "Type of the instance to be provisioned"
+default = "t2.medium"
+
 }
 
-variable "my_enviroment" {
-  description = "Instance type for the EC2 instance"
-  default     = "dev"
+variable "my_environment" {
+
+description = "Environment where resource to be provisioned"
+default = "dev"
+
 }

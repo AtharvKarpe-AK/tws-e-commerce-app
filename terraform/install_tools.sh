@@ -24,6 +24,8 @@ sudo apt-get install docker.io -y
 sudo usermod -aG docker $USER
 sudo usermod -aG docker jenkins
 
+newgrp docker
+
 sudo systemctl restart docker
 sudo systemctl restart jenkins
 
