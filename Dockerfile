@@ -1,54 +1,66 @@
-# use image for node
+# Stage:1 Use latest image
 
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
-# Create workdirectory
+#Create working directory
 
 WORKDIR /app
 
-# install dependies
+# Create non-root user as per alpine syntax
+
+RUN addgroup -S tws-group && adduser -S tws-user -G tws-group
+
+#install necessary build dependencies
 
 RUN apk add --no-cache python3 make g++
 
-# copy json package files
+#Copy packages
 
 COPY package*.json ./
 
-# install npm ci: clean install
+#Install dependencies
 
 RUN npm ci
 
-# copy project files
+#Copy project files
 
 COPY . .
 
-# create build for whole files
+#Build application for Next.js
 
 RUN npm run build
 
-#stage 2: productio stage, here will copy all installed files
+#Stage:2 Production stage
 
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 
-# Set working directory
+#Set working directory
 
 WORKDIR /app
 
-# Copy necessary files from builder stage, talk to developer for this
+#create same user in production stage
 
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
+RUN addgroup -S tws-group && adduser -S tws-user -G tws-group
 
-# Set environment variable
+#Copy necessary files from builder stage, here need to change owenership of these files because initially copied files through root user now using another user to avoid permission owenership errors
+
+COPY --from=builder --chown=tws-user:tws-group /app/.next/standalone ./
+COPY --from=builder --chown=tws-user:tws-group /app/.next/static ./.next/static
+COPY --from=builder --chown=tws-user:tws-group /app/public ./public
+
+# Set environment variables
 
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Expose the port the app runs on
+# Switch user
+
+USER tws-user
+
+# Expose to port
 
 EXPOSE 3000
 
-# Run the application, server.js is the file present in directory to serve the application
+# Command to run application
 
-CMD ["node","server.js"]
+CMD ["node", "server.js"]
