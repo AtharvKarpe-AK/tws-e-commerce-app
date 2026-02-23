@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: migration
-        image: atharvkarpe/easyshop-migration:latest
+        image: atharvkarpe/easyshop-migration:6
         imagePullPolicy: Always
         env:
           - name: MONGDB_URI
