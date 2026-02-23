@@ -24,7 +24,7 @@ sudo apt-get install docker.io -y
 
 # User group permission
 sudo usermod -aG docker $USER
-sudo usermod -aG docker Jenkins
+sudo usermod -aG docker jenkins
 
 # update group
 newgrp docker
