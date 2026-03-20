@@ -13,7 +13,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - 3.255.157.74.nip.io
+      - 3.249.24.205.nip.io
       secretName: easyshop-tls-secret
 
   rules:
