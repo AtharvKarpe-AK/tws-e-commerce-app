@@ -17,7 +17,7 @@ spec:
       secretName: easyshop-tls-secret
 
   rules:
-    - host: 3.255.157.74.nip.io
+    - host: 3.249.24.205.nip.io
       http:
         paths:
           - path: /
