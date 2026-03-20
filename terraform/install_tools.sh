@@ -12,7 +12,7 @@ sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt update
+sudo apt-get update
 sudo apt-get -y install jenkins
 
 sudo systemctl start jenkins
@@ -23,7 +23,7 @@ sudo apt-get update
 sudo apt-get install docker.io -y
 
 # User group permission
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 sudo usermod -aG docker jenkins
 
 # update group
