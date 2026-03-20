@@ -13,7 +13,7 @@ metadata:
 spec:
   
   rules:
-    - host: aba9a53086c294b0ab47b5683108bbf2-784f74b38fb5e7cf.elb.eu-west-1.amazonaws.com.nip.io
+    - host: aba9a53086c294b0ab47b5683108bbf2-784f74b38fb5e7cf.elb.eu-west-1.amazonaws.com
       http:
         paths:
           - path: /
