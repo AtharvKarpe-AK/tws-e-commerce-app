@@ -8,16 +8,12 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 
 spec:
-  tls:
-    - hosts:
-      - 3.249.24.205.nip.io
-      secretName: easyshop-tls-secret
-
+  
   rules:
-    - host: 3.249.24.205.nip.io
+    - host: aba9a53086c294b0ab47b5683108bbf2-784f74b38fb5e7cf.elb.eu-west-1.amazonaws.com.nip.io
       http:
         paths:
           - path: /
